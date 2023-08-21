@@ -9,6 +9,7 @@ export interface IUser {
   name: string;
   email: string;
   address: IAdress;
+  
 }
 
 export interface ITodo {

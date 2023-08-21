@@ -9,34 +9,32 @@ interface UserItemPageParams {
     id: string | Record<string, string | undefined>;
 }
 
-const UserItemPage= () => {
-    
+const UserItemPage = () => {
+
     let navigate: NavigateFunction = useNavigate();
 
-    
-  
+
+
     const [user, setUser] = useState<IUser | null>(null);
     const params = useParams();
 
 
-    console.log(params)
-
-    // async function fetchUser() {
-    //     try {
-    //         const response = await axios.get<IUser>(
-    //             `https://jsonplaceholder.typicode.com/users/${params.id}`
-    //         );
-    //         setUser(response.data);
-    //     } catch (error) {
-    //         new Error("error");
-    //         console.log(error);
-    //     }
-    // }
+    async function fetchUser() {
+        try {
+            const response = await axios.get<IUser>(
+                `https://jsonplaceholder.typicode.com/users/${params.id}`
+            );
+            setUser(response.data);
+        } catch (error) {
+            new Error("error");
+            console.log(error);
+        }
+    }
 
 
-    // useEffect(() => {
-    //     fetchUser();
-    // }, []);
+    useEffect(() => {
+        fetchUser();
+    }, []);
 
     return (
         <div>
@@ -44,10 +42,10 @@ const UserItemPage= () => {
             <h1>Page of {user?.name}</h1>
             <p>Adress {user?.address.city} and {user?.address.street}{user?.address.zipcode}</p>
             <p>Email {user?.email}</p>
-        </div> 
+        </div>
     )
-    
-  
+
+
 };
 
 export default UserItemPage;
