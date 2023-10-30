@@ -5,6 +5,9 @@ export default function Link() {
     <div>Link</div>
     <>
         <div> GGGGGGG</div>
+        <ul>
+            <li> LINK 1</li>
+        </ul>
     </>
   )
 }
