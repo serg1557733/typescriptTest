@@ -12,7 +12,7 @@ const App: React.FC = () => {
     return (
         <div className="bg-neutral-200">
             <QueryClientProvider client={queryClient}>
-                <BrowserRouter  >
+                <BrowserRouter >
                     <nav className='flex flex-start gap-4 h-16 mx-auto w-full container px-2 items-center'>
                         <NavLink className='text-2xl hover:underline' to={'/users'}>Users</NavLink>
                         <NavLink className='text-2xl hover:underline' to={'/todos'}>Todos</NavLink>
